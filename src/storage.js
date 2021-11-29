@@ -4,35 +4,55 @@ const KEY = "key1";
 
 const LocalStorage = {
   save: (value) => {
-    localStorage.setItem(KEY, value);
+    try {
+      localStorage.setItem(KEY, value);
+    } catch (e) {
+      console.log('Error LS', e.message);
+    }
   },
-  load: () => localStorage.getItem(KEY),
+  load: () => {
+    try {
+      return localStorage.getItem(KEY);
+    } catch (e) {
+      console.log('Error LS', e.message);
+      return null;
+    }
+  },
 };
 
 const IndexedDB = {
   save: async (value) => {
-    localforage.setDriver([localforage.INDEXEDDB]);
+    try {
+      localforage.setDriver([localforage.INDEXEDDB]);
 
-    const table = localforage.createInstance({
-      name: "table1",
-      storeName: "store1",
-    });
+      const table = localforage.createInstance({
+        name: "table1",
+        storeName: "store1",
+      });
 
-    await table.setItem(KEY, value);
+      await table.setItem(KEY, value);
 
-    table._dbInfo.db.close()
+      table._dbInfo.db.close();
+    } catch (e) {
+      console.log('Error IDB', e.message);
+    }
   },
   load: async () => {
-    const table = localforage.createInstance({
-      name: "table1",
-      storeName: "store1",
-    });
+    try {
+      const table = localforage.createInstance({
+        name: "table1",
+        storeName: "store1",
+      });
 
-    const value = await table.getItem(KEY);
+      const value = await table.getItem(KEY);
 
-    table._dbInfo.db.close()
+      table._dbInfo.db.close();
 
-    return value;
+      return value;
+    } catch (e) {
+      console.log('Error IDB', e.message);
+      return null;
+    }
   },
 };
 
