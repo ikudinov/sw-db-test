@@ -23,9 +23,8 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "chrome >= 37",
+      "safari >= 10"
     ],
     "development": [
       "last 1 chrome version",
