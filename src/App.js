@@ -22,8 +22,15 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>В indexedDB: {timeIDB}</p>
-        <p>В localStorage: {timeLS}</p>
+        <p>
+          В indexedDB: {timeIDB}
+          <br/>
+          В localStorage: {timeLS}
+          <br/>
+          <a href="exms://xlnk.ms/join/chat/MzBlNWU2OWEtY2YwOS00MDVmLTliNGYtNGE4ODE1MzI1ZWRkOmE2MTlmY2ZhLWExOWItNTI1Ni1hNTkyLTliMGU3NWNhMDg5Njo3NDdiN2U4MS1lNTQ1LTUyM2MtOWY5OS1mOWRiNTI4N2Q5ZDk=">
+            EXMS link
+          </a>
+        </p>
         <p>
           <input
             type="text"

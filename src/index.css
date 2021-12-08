@@ -24,3 +24,14 @@ input[type="text"] {
   padding: 10px;
   width: 200px;
 }
+
+a {
+  animation: blink 2s linear infinite;
+  color: red;
+  font-weight: 700;
+}
+
+@keyframes blink {
+  50% { color: rgb(0, 0, 255); }
+  100% { color: rgba(255, 0, 0); }
+}
